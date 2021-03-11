@@ -1,0 +1,159 @@
+body{
+    font-family: 'Roboto',sans-serif;
+}
+%btn{
+    color:white;
+    height:3em;
+    border:0px;
+    background-image: linear-gradient(0deg,#9356DC,#FF79DA);
+    font-family: 'Roboto';
+    font-size: large;
+    border-radius: 3em;
+    padding:0 1em 0 1em ;
+    box-shadow: 5px 5px 8px 0 #656565;
+    margin-top:2em;
+    &:hover{
+        cursor: pointer;
+    }
+}
+h1{
+    font-family: 'Shrikhand',cursive;
+}
+button{
+    @extend %btn
+}
+header{
+    position: relative;
+    text-align: center;
+}
+footer{
+    background-color: #353535;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em 2em 2em ;
+    h4{
+        color: white;
+    font-family: 'shrikhand';
+    font-size: larger;
+    font-weight:lighter;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+    }
+}
+#position{
+    width: 100%;
+    background-color: #ebebeb;
+    padding:1.5em 0 1.5em 0;
+    text-align: center;
+    font-size:larger;
+    font-weight: bold;
+}
+#positionLogo{
+    margin-right: 0.5em;
+}
+#explorer{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding:1em 0 2em 0;
+}
+#tuto{
+    text-align: center;
+    padding-bottom: 2em;
+}
+#stepsList{
+    display: flex;
+    justify-content: space-around;
+    margin-top:2em;
+}
+.step{
+    position:relative;
+    display: flex;
+    background-color: #f2f2f2;
+    width: 20%;
+    height: 4em;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    box-shadow: 5px 5px 5px 0 #cccccc;
+}
+.numStep{
+    font-size: medium;
+    color: white;
+    background-color: #9356DC;
+    position:absolute;
+    width:1.2em;
+    height: 1.5;
+    top:1.4rem;
+    left:-0.5em;
+    border-radius: 1em;
+}
+.stepIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5em;
+    color: #a7a7a7;
+}
+#restaurants{
+    padding:0.5em 0em 0.5em 2em;
+    background-color: #f2f2f2;
+    border-radius: 1.5em 1.5em 0 0 ;
+}
+#tabRestaurants{
+    width: 100%;
+}
+#column1{
+    display: flex;
+    width: 100%;
+}
+#column2{
+    width: 100%;
+    display: flex;
+}
+.restaurant{
+    position: relative;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 2em;
+    margin-right: 2em;
+    width: 50%;
+    box-shadow: 5px 5px 5px 0 #cccccc;
+    border-radius: 1.5em;
+}
+.restaurantImgContainer{
+    border-radius: 1.5em 1.5em 0 0;
+    overflow:hidden;
+    height:20em;
+    max-width: 100%;
+}
+.infoRestaurant{
+    padding:0 2em 1em 1em;
+    display: flex;
+    justify-content: space-between;
+}
+.like{
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+.new{
+    position: absolute;
+    top:1em;
+    right: 1em;
+    background-color: #99E2D0;
+    padding:0.5em;
+    border-radius: 0.2em;
+    color: #1aa381;
+    font-weight: bolder;
+}
+.returnArrow{
+    color: black;
+    position: absolute;
+    left:1em;
+    top:1em;
+}
