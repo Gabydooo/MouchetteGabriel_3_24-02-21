@@ -148,7 +148,11 @@ footer a {
   border-radius: 1.5em 1.5em 0 0;
   overflow: hidden;
   height: 20em;
-  max-width: 100%;
+}
+
+.restaurantImg {
+  width: fit-content;
+  height: fit-content;
 }
 
 .infoRestaurant {
@@ -189,7 +193,7 @@ footer a {
 
 .menuMain {
   background-color: #f2f2f2;
-  padding: 1em 0 2em 2em;
+  padding: 1em 0 5em 2em;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
@@ -214,6 +218,7 @@ footer a {
 }
 
 .catMenu {
+  min-width: 0;
   width: 100%;
   margin-right: 2em;
 }
@@ -229,13 +234,13 @@ footer a {
 }
 
 .plat {
+  position: relative;
   background-color: white;
   border-radius: 1.5em;
   margin-bottom: 1em;
   display: flex;
   justify-content: space-between;
   padding: 0em 1em 1em 1em;
-  overflow-x: ellipsis;
 }
 .plat span {
   margin-top: 0em;
@@ -244,12 +249,26 @@ footer a {
   margin-bottom: 0em;
 }
 
+.descriptionPlat {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 0.5em;
+}
+
 .prixPlat {
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
 }
 
-.boutonExplorer {
+.prix {
+  position: static;
+  bottom: 1em;
+  right: 1em;
+}
+
+.boutonCommander {
   text-align: center;
   margin-top: 2em;
   margin-bottom: 3em;
