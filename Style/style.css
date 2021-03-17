@@ -167,6 +167,10 @@ footer a {
   font-size: x-large;
 }
 
+.likeIcon:hover {
+  transform: rotate(360 deg);
+}
+
 .new {
   position: absolute;
   top: 1em;
@@ -240,10 +244,12 @@ footer a {
   margin-bottom: 1em;
   display: flex;
   justify-content: space-between;
-  padding: 0em 1em 1em 1em;
+  padding-left: 1em;
+  overflow: hidden;
 }
 .plat span {
   margin-top: 0em;
+  margin-bottom: 1em;
 }
 .plat h4 {
   margin-bottom: 0em;
@@ -261,11 +267,27 @@ footer a {
   align-items: flex-end;
   justify-content: flex-end;
 }
+.prixPlat:hover + .validation {
+  transform: translate(0, 0);
+}
 
-.prix {
-  position: static;
-  bottom: 1em;
-  right: 1em;
+.validation {
+  display: flex;
+  background-color: #99E2D0;
+  width: 13%;
+  justify-content: center;
+  align-items: center;
+  transform: translate(100%, 0em);
+  position: relative;
+  transition: 1s;
+}
+
+.checkIcon {
+  position: absolute;
+  left: 1em;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .boutonCommander {
