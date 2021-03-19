@@ -25,6 +25,37 @@ h1 {
   font-family: "Shrikhand", cursive;
 }
 
+#loader {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  opacity: 95%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadPoint {
+  margin: 0.3em;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 1em;
+}
+
+.loadPoint-1 {
+  background-color: #9356DC;
+}
+
+.loadPoint-2 {
+  background-color: #99E2D0;
+}
+
+.loadPoint-3 {
+  background-color: #FF79DA;
+}
+
 header {
   position: relative;
   text-align: center;
@@ -162,13 +193,26 @@ footer a {
 }
 
 .like {
+  position: relative;
   display: flex;
   align-items: center;
   font-size: x-large;
 }
+.like:hover {
+  cursor: pointer;
+}
 
-.likeIcon:hover {
-  transform: rotate(360 deg);
+.likeIconF {
+  transform: scale(0);
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+.likeIconF::after {
+  background: linear-gradient(0deg, #9471c0, #ffa6e6);
+}
+
+.likeIconE:hover + .likeIconF {
+  transform: scale(1);
 }
 
 .new {
@@ -237,22 +281,40 @@ footer a {
   margin-bottom: 1.5em;
 }
 
-.plat {
+.platContainer {
   position: relative;
   background-color: white;
-  border-radius: 1.5em;
+  border-radius: 1em;
   margin-bottom: 1em;
   display: flex;
   justify-content: space-between;
   padding-left: 1em;
   overflow: hidden;
 }
-.plat span {
+.platContainer span {
   margin-top: 0em;
-  margin-bottom: 1em;
 }
-.plat h4 {
+.platContainer h4 {
   margin-bottom: 0em;
+}
+
+.plat {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+  overflow: hidden;
+  transform-origin: 0% 0%;
+  transition: 1s;
+}
+.plat:hover + .validation {
+  transform: translate(0, 0);
+}
+.plat:hover + .validation > .checkIcon {
+  transform: rotate(360deg);
+}
+.plat:hover > .prixPlat {
+  transform: translate(-425%, 0);
 }
 
 .descriptionPlat {
@@ -263,31 +325,32 @@ footer a {
 }
 
 .prixPlat {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-.prixPlat:hover + .validation {
-  transform: translate(0, 0);
+  position: absolute;
+  right: 2.5em;
+  bottom: 1em;
+  transform: translate(100%, 0);
+  margin-left: 1em;
+  transition: 1s;
 }
 
 .validation {
   display: flex;
   background-color: #99E2D0;
-  width: 13%;
+  width: 20%;
   justify-content: center;
   align-items: center;
-  transform: translate(100%, 0em);
+  transform: translate(102%, 0em);
   position: relative;
-  transition: 1s;
+  transition: 0.6s ease-out;
 }
 
 .checkIcon {
+  font-size: x-large;
   position: absolute;
   left: 1em;
   color: white;
-  font-size: larger;
   font-weight: bolder;
+  transition: 0.4s ease-out;
 }
 
 .boutonCommander {
@@ -365,5 +428,6 @@ footer a {
     padding-left: 0.5em;
   }
 }
+@keyframes loader {}
 
 /*# sourceMappingURL=style.css.map */
