@@ -26,6 +26,8 @@ h1 {
 }
 
 #loader {
+  top: 0;
+  left: 0;
   display: flex;
   position: fixed;
   height: 100%;
@@ -35,13 +37,26 @@ h1 {
   opacity: 95%;
   justify-content: center;
   align-items: center;
+  animation: loader 4s forwards;
 }
 
 .loadPoint {
-  margin: 0.3em;
+  margin: 1.2em;
   height: 1.5em;
   width: 1.5em;
   border-radius: 1em;
+  transform-origin: 50% 200%;
+  animation: loadPoints 0.8s backwards ease-in-out infinite;
+  animation-direction: alternate-reverse;
+}
+.loadPoint-1 {
+  animation-delay: 0.2666666667s;
+}
+.loadPoint-2 {
+  animation-delay: 0.5333333333s;
+}
+.loadPoint-3 {
+  animation-delay: 0.8s;
 }
 
 .loadPoint-1 {
@@ -145,7 +160,7 @@ footer a {
 }
 
 #restaurants {
-  padding: 0.5em 2em 0.5em 2em;
+  padding: 0.5em 3em 3em 6em;
   background-color: #f2f2f2;
   border-radius: 1.5em 1.5em 0 0;
 }
@@ -156,12 +171,14 @@ footer a {
 
 #column1 {
   display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
 #column2 {
   width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
 .restaurant {
@@ -169,21 +186,22 @@ footer a {
   text-decoration: none;
   color: black;
   margin-bottom: 2em;
-  margin-right: 2em;
+  margin-right: 3em;
   width: 50%;
   box-shadow: 5px 5px 5px 0 #cccccc;
   border-radius: 1.5em;
+  overflow: hidden;
 }
 
 .restaurantImgContainer {
   border-radius: 1.5em 1.5em 0 0;
   overflow: hidden;
   height: 20em;
+  width: 100%;
 }
 
 .restaurantImg {
-  width: fit-content;
-  height: fit-content;
+  width: auto;
 }
 
 .infoRestaurant {
@@ -201,18 +219,26 @@ footer a {
 .like:hover {
   cursor: pointer;
 }
+.like:hover > .likeIconF {
+  transform: scale(1);
+}
+.like:hover > .likeIconE {
+  animation: heart 0.3s ease-in-out forwards;
+}
 
 .likeIconF {
   transform: scale(0);
   position: absolute;
   transition: 0.5s ease-in-out;
-}
-.likeIconF::after {
-  background: linear-gradient(0deg, #9471c0, #ffa6e6);
+  background-image: linear-gradient(0deg, #9356DC, #FF79DA);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.likeIconE:hover + .likeIconF {
-  transform: scale(1);
+.likeIconE {
+  transition-delay: 2s;
+  transition: 2s;
 }
 
 .new {
@@ -290,47 +316,76 @@ footer a {
   justify-content: space-between;
   padding-left: 1em;
   overflow: hidden;
+  animation: platApparition 1s both ease-out;
+}
+.platContainer-1 {
+  animation-delay: 0.1s;
+}
+.platContainer-2 {
+  animation-delay: 0.2s;
+}
+.platContainer-3 {
+  animation-delay: 0.3s;
+}
+.platContainer-4 {
+  animation-delay: 0.4s;
+}
+.platContainer-5 {
+  animation-delay: 0.5s;
+}
+.platContainer-6 {
+  animation-delay: 0.6s;
+}
+.platContainer-7 {
+  animation-delay: 0.7s;
+}
+.platContainer-8 {
+  animation-delay: 0.8s;
+}
+.platContainer-9 {
+  animation-delay: 0.9s;
 }
 .platContainer span {
   margin-top: 0em;
 }
 .platContainer h4 {
+  margin-top: 0;
   margin-bottom: 0em;
+}
+.platContainer:hover > .validation {
+  transform: translate(-100%, 0);
+}
+.platContainer:hover > .validation > .checkIcon {
+  transform: rotate(360deg);
 }
 
 .plat {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 1em;
   margin-bottom: 1em;
   overflow: hidden;
+  min-width: 0;
   transform-origin: 0% 0%;
   transition: 1s;
 }
-.plat:hover + .validation {
-  transform: translate(0, 0);
-}
-.plat:hover + .validation > .checkIcon {
-  transform: rotate(360deg);
-}
 .plat:hover > .prixPlat {
-  transform: translate(-425%, 0);
+  transform: translate(-5em, 0);
 }
 
 .descriptionPlat {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-right: 0.5em;
 }
 
 .prixPlat {
-  position: absolute;
-  right: 2.5em;
-  bottom: 1em;
-  transform: translate(100%, 0);
+  display: flex;
+  align-items: flex-end;
   margin-left: 1em;
-  transition: 1s;
+  transition: 0.6s ease-out;
+  margin-right: 0.5em;
 }
 
 .validation {
@@ -339,7 +394,7 @@ footer a {
   width: 20%;
   justify-content: center;
   align-items: center;
-  transform: translate(102%, 0em);
+  margin-right: -20%;
   position: relative;
   transition: 0.6s ease-out;
 }
@@ -428,6 +483,42 @@ footer a {
     padding-left: 0.5em;
   }
 }
-@keyframes loader {}
+@keyframes loader {
+  0% {
+    transform: translate(0);
+  }
+  99% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(200%);
+  }
+}
+@keyframes loadPoints {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2.5);
+  }
+}
+@keyframes platApparition {
+  0% {
+    transform: translateY(1em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes heart {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
