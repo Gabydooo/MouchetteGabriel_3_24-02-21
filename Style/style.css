@@ -1,8 +1,3 @@
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-}
-
 button {
   color: white;
   height: 3em;
@@ -20,6 +15,11 @@ button:hover {
   transform: scale(1.05);
   background-image: linear-gradient(0deg, #9471c0, #ffa6e6);
   cursor: pointer;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 
 h1 {
@@ -198,12 +198,12 @@ footer a {
   border-radius: 1.5em 1.5em 0 0;
   overflow: hidden;
   height: 20em;
-  width: 100%;
 }
 
-.restaurantImgContainer img {
+.restaurantImg {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .infoRestaurant {
@@ -262,7 +262,7 @@ footer a {
 
 .menuImg {
   width: 100%;
-  max-height: 35em;
+  height: 35em;
   object-fit: cover;
 }
 
@@ -462,14 +462,19 @@ footer a {
   }
 
   .restaurantImg {
-    width: fit-content;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .menuMain {
     margin-left: auto;
     margin-right: auto;
     padding-right: 2em;
+  }
+
+  .menuImg {
+    height: 25em;
   }
 
   .menuTab {
@@ -492,6 +497,10 @@ footer a {
   #restaurants {
     padding-left: 0.5em;
     padding-right: 0.5em;
+  }
+
+  .menuImg {
+    height: 18em;
   }
 
   .menuMain {

@@ -1,12 +1,7 @@
-body{
-    font-family: 'Roboto',sans-serif;
-    margin: 0;
-}
 $animDur:0.8s;
 $loadPoint-delay:$animDur/3;
 $apparitionPlat:1s;
 $delayPlat:$apparitionPlat/10;
-
 %btn{
     color:white;
     height:3em;
@@ -25,6 +20,12 @@ $delayPlat:$apparitionPlat/10;
         cursor: pointer;
     }
 }
+
+body{
+    font-family: 'Roboto',sans-serif;
+    margin: 0;
+}
+
 h1{
     font-family: 'Shrikhand',cursive;
 }
@@ -182,11 +183,12 @@ footer{
     border-radius: 1.5em 1.5em 0 0;
     overflow:hidden;
     height:20em;
-    width:100%;
 }
-.restaurantImgContainer img{
+.restaurantImg{
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+
 }
 .infoRestaurant{
     padding:0 2em 1em 1em;
@@ -240,7 +242,7 @@ footer{
 }
 .menuImg{
     width: 100%;
-    max-height:35em;
+    height:35em;
     object-fit: cover;
 }
 .menuMain{
@@ -405,13 +407,17 @@ footer{
         width: 100%;
     }
     .restaurantImg{
-        width: fit-content;
-        height: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     .menuMain{
         margin-left: auto;
         margin-right: auto;
         padding-right: 2em;
+    }
+    .menuImg{
+        height:25em
     }
     .menuTab{
         flex-direction: column;
@@ -430,6 +436,9 @@ footer{
     #restaurants{
         padding-left: 0.5em;
         padding-right: 0.5em;
+    }
+    .menuImg{
+        height:18em;
     }
     .menuMain{
         h2{
