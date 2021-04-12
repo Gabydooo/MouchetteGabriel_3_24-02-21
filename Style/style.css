@@ -9,7 +9,7 @@ button {
   padding: 0 1em 0 1em;
   box-shadow: 5px 5px 8px 0 #656565;
   margin-top: 2em;
-  transition: 0.5s;
+  transition: 0.4s ease-in-out;
 }
 button:hover {
   transform: scale(1.05);
@@ -138,6 +138,9 @@ footer a {
   border-radius: 1em;
   box-shadow: 5px 5px 5px 0 #cccccc;
 }
+.step:hover > .stepIcon {
+  color: #9356DC;
+}
 
 .numStep {
   font-size: medium;
@@ -170,16 +173,10 @@ footer a {
   width: 100%;
 }
 
-#column1 {
+.line {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-#column2 {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 
 .restaurant {
@@ -192,6 +189,10 @@ footer a {
   box-shadow: 5px 5px 5px 0 #cccccc;
   border-radius: 1.5em;
   overflow: hidden;
+  transition: 0.4s ease-in-out;
+}
+.restaurant:hover {
+  transform: scale(1.05);
 }
 
 .restaurantImgContainer {
@@ -206,7 +207,7 @@ footer a {
   object-fit: cover;
 }
 
-.infoRestaurant {
+.restaurantFooter {
   padding: 0 2em 1em 1em;
   display: flex;
   justify-content: space-between;
@@ -242,7 +243,7 @@ footer a {
   transition: 2s;
 }
 
-.new {
+.newBadge {
   position: absolute;
   top: 1em;
   right: 1em;
@@ -348,6 +349,9 @@ footer a {
 .platContainer-9 {
   animation-delay: 0.9s;
 }
+.platContainer-10 {
+  animation-delay: 1s;
+}
 .platContainer span {
   margin-top: 0em;
 }
@@ -364,6 +368,12 @@ footer a {
 .platContainer:hover > .validation > .checkIcon {
   transform: rotate(360deg);
 }
+.platContainer:hover > .plat > .prixPlat {
+  transform: translate(-100%, 0);
+}
+.platContainer:hover > .plat > .descriptionPlat {
+  width: 65%;
+}
 
 .plat {
   display: flex;
@@ -375,12 +385,6 @@ footer a {
   min-width: 0;
   transform-origin: 0% 0%;
   transition: 1s;
-}
-.plat:hover > .prixPlat {
-  transform: translate(-100%, 0);
-}
-.plat:hover > .descriptionPlat {
-  width: 65%;
 }
 
 .descriptionPlat {
@@ -404,7 +408,7 @@ footer a {
 .validation {
   display: flex;
   background-color: #99E2D0;
-  width: 18%;
+  width: 20%;
   justify-content: center;
   align-items: center;
   margin-right: -20%;
@@ -444,11 +448,11 @@ footer a {
     margin-bottom: 1em;
   }
 
-  #column1 {
-    flex-direction: column;
+  #restaurants {
+    padding: 1em 2em 0em 2em;
   }
 
-  #column2 {
+  .line {
     flex-direction: column;
   }
 
@@ -517,6 +521,7 @@ footer a {
 
   .validation {
     width: 20%;
+    margin-right: -20%;
   }
 }
 @keyframes loader {

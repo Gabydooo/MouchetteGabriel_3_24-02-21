@@ -1,3 +1,6 @@
+$primary-color:#9356DC;
+$secondary-color:#FF79DA ;
+$tertiary-color:#99E2D0;
 $animDur:0.8s;
 $loadPoint-delay:$animDur/3;
 $apparitionPlat:1s;
@@ -6,14 +9,14 @@ $delayPlat:$apparitionPlat/10;
     color:white;
     height:3em;
     border:0px;
-    background-image: linear-gradient(0deg,#9356DC,#FF79DA);
+    background-image: linear-gradient(0deg,$primary-color,$secondary-color);
     font-family: 'Roboto';
     font-size: large;
     border-radius: 3em;
     padding:0 1em 0 1em ;
     box-shadow: 5px 5px 8px 0 #656565;
     margin-top:2em;
-    transition: 0.5s;
+    transition: 0.4s ease-in-out;
     &:hover{
         transform: scale(1.05);
         background-image: linear-gradient(0deg,#9471c0,#ffa6e6);
@@ -60,17 +63,15 @@ button{
         }
     }
 }
-
 .loadPoint-1{
-    background-color:#9356DC;
+    background-color:$primary-color;
 }
 .loadPoint-2{
-    background-color: #99E2D0;
+    background-color: $tertiary-color;
 }
 .loadPoint-3{
-    background-color:#FF79DA ;
+    background-color:$secondary-color ;
 }
-
 header{
     position: relative;
     text-align: center;
@@ -129,11 +130,14 @@ footer{
     justify-content: center;
     border-radius: 1em;
     box-shadow: 5px 5px 5px 0 #cccccc;
+    &:hover > .stepIcon{
+        color: $primary-color;
+    }
 }
 .numStep{
     font-size: medium;
     color: white;
-    background-color: #9356DC;
+    background-color: $primary-color;
     position:absolute;
     width:1.2em;
     height: 1.2em;
@@ -157,16 +161,10 @@ footer{
 #tabRestaurants{
     width: 100%;
 }
-#column1{
+.line{
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
-#column2{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
 }
 .restaurant{
     position: relative;
@@ -178,6 +176,10 @@ footer{
     box-shadow: 5px 5px 5px 0 #cccccc;
     border-radius: 1.5em;
     overflow: hidden;
+    transition: 0.4s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
 }
 .restaurantImgContainer{
     border-radius: 1.5em 1.5em 0 0;
@@ -190,7 +192,7 @@ footer{
     object-fit: cover;
 
 }
-.infoRestaurant{
+.restaurantFooter{
     padding:0 2em 1em 1em;
     display: flex;
     justify-content: space-between;
@@ -214,26 +216,26 @@ footer{
     transform: scale(0);
     position: absolute;
     transition: 0.5s ease-in-out;
-    background-image: linear-gradient(0deg,#9356DC,#FF79DA);
+    background-image: linear-gradient(0deg,$primary-color,$secondary-color);
     -webkit-background-clip: text;
     color: transparent;
 }
 .likeIconE{
     transition-delay: 2s;
     transition: 2s;
-    
-    
 }
-.new{
+.newBadge{
     position: absolute;
     top:1em;
     right: 1em;
-    background-color: #99E2D0;
+    background-color: $tertiary-color;
     padding:0.5em;
     border-radius: 0.2em;
     color: #1aa381;
     font-weight: bolder;
 }
+
+                        // ---Style des Menus---
 .returnArrow{
     color: black;
     position: absolute;
@@ -264,7 +266,6 @@ footer{
         font-family: 'Shrikhand';
     }
 }
-
 .menuTab{
     display: flex;
     justify-content: space-between;
@@ -280,7 +281,7 @@ footer{
 .soulignage{
     width: 3em;
     height: 0.3em;
-    background-color: #99E2D0;
+    background-color: $tertiary-color;
     margin-bottom: 1.5em;
 }
 .platContainer{
@@ -296,7 +297,7 @@ footer{
     text-overflow: ellipsis;
 
     animation: platApparition $apparitionPlat both ease-out;
-    @for $i from 1 through 9{
+    @for $i from 1 through 10{
         &-#{$i}{
             animation-delay: $i*$delayPlat;
         }
@@ -317,6 +318,12 @@ footer{
     &:hover> .validation> .checkIcon{
         transform: rotate(360deg);
     }
+    &:hover> .plat > .prixPlat{
+        transform: translate(-100%,0);
+    }
+    &:hover> .plat > .descriptionPlat{
+        width:65%;
+    }
 }
 .plat{
     display: flex;
@@ -328,13 +335,6 @@ footer{
     min-width: 0;
     transform-origin: 0% 0%;
     transition: 1s;
-    &:hover>.prixPlat{
-        transform: translate(-100%,0);
-    }
-    &:hover > .descriptionPlat{
-        width:65%;
-    }
-    
 }
 .descriptionPlat{
     white-space: nowrap;
@@ -352,12 +352,10 @@ footer{
     transition: 0.6s ease-out;
     margin-right: 0.5em;
 }
-
-
 .validation{
     display: flex;
-    background-color: #99E2D0;
-    width: 18%;
+    background-color: $tertiary-color;
+    width: 20%;
     justify-content: center;
     align-items: center;
     margin-right: -20%;
@@ -367,7 +365,6 @@ footer{
 .checkIcon{
     font-size:x-large;
     position: absolute;
-    // left: 1em;
     color: white;
     font-weight: bolder;
     transition-delay: 0.6s;
@@ -378,11 +375,12 @@ footer{
     margin-top: 2em;
     margin-bottom: 3em;
 }
+
+                    // ---Responsive---
 @media screen and (max-width: 1280px){
     body{
         margin: 0;
     }
-
     #stepsList{
         padding-left: 3em;
         padding-right: 3em;
@@ -393,10 +391,10 @@ footer{
         width: 100%;
         margin-bottom: 1em;
     }
-    #column1{
-        flex-direction: column;
+    #restaurants{
+        padding:1em 2em 0em 2em;
     }
-    #column2{
+    .line{
         flex-direction: column;
     }
     .restaurant{
@@ -453,8 +451,11 @@ footer{
     }
     .validation{
         width: 20%;
+        margin-right: -20%;
     }
 }
+
+                        // ---Keyframes---
 @keyframes loader{
     0%{
         transform: translate(0);
